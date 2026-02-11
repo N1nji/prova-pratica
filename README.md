@@ -65,7 +65,7 @@ Estes itens não são obrigatórios, mas contam pontos na avaliação:
 
 ## ⏰ Prazo
 
-Você terá **2 à 5 dias** para entregar a prova a partir da data de recebimento. Se precisar de mais tempo, avise!
+Conforme e-mail encaminhado com o link do desafio.
 
 ---
 
