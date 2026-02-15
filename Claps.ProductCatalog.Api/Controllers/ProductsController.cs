@@ -1,4 +1,5 @@
-﻿using Claps.ProductCatalog.Application.Services;
+﻿using Claps.ProductCatalog.Application.Interfaces;
+using Claps.ProductCatalog.Application.Services;
 using Claps.ProductCatalog.Domain.Enums;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,20 @@ public class ProductsController : ControllerBase
     {
         var product = await _service.CreateAsync(name, description, price, category);
         return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+    }
+
+    [HttpPost("{id}/upload")]
+    public async Task<IActionResult> UploadImage(Guid id, IFormFile file,
+        [FromServices] IFileService fileService)
+    {
+        if (file == null || file.Length == 0)
+            return BadRequest("Invalid file");
+
+        var imageUrl = await fileService.SaveFileAsync(file.OpenReadStream(), file.FileName);
+
+        await _service.UpdateImageAsync(id, imageUrl);
+
+        return Ok(new { ImageUrl = imageUrl });
     }
 
     [HttpGet]

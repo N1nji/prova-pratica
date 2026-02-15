@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Claps.ProductCatalog.Application\Claps.ProductCatalog.Application.csproj" />
+    <ProjectReference Include="..\Claps.ProductCatalog.Domain\Claps.ProductCatalog.Domain.csproj" />
     <ProjectReference Include="..\ClassLibrary1\Claps.ProductCatalog.Domain.csproj" />
   </ItemGroup>
 

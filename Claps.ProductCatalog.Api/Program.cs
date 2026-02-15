@@ -1,8 +1,9 @@
 using Claps.ProductCatalog.Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
 using Claps.ProductCatalog.Application.Interfaces;
+using Claps.ProductCatalog.Infrastructure.Services;
 using Claps.ProductCatalog.Application.Services;
 using Claps.ProductCatalog.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ProductService>();
 
+builder.Services.AddScoped<IFileService, FileService>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,10 +31,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseStaticFiles();
 
 app.Run();

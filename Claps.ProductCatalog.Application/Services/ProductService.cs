@@ -49,6 +49,18 @@ public class ProductService
         await _repository.UpdateAsync(product);
     }
 
+    public async Task UpdateImageAsync(Guid id, string imageUrl)
+    {
+        var product = await _repository.GetByIdAsync(id);
+
+        if (product == null)
+            throw new Exception("Product not found");
+
+        product.SetImage(imageUrl);
+        
+        await _repository.UpdateAsync(product);
+    }
+
     public async Task DeleteAsync(Guid id)
     {
         var product = await _repository.GetByIdAsync(id);
