@@ -123,7 +123,7 @@ Testes unitários na camada de aplicação
 Docker com banco e API  
 Configuração preparada para CI/CD  
 
-## Observações Finais
+## Observações Finais (TESTE PRÁTICO))
 
 O upload de imagem simula armazenamento S3 salvando arquivos localmente.  
 O projeto pode ser executado totalmente via Docker.  
