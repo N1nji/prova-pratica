@@ -29,4 +29,4 @@ jobs:
         run: dotnet test --no-build --configuration Release --verbosity normal
 
       - name: Build Docker Image
-        run: docker build -t clapsproductcatalog-api ./Claps.ProductCatalog.Api
+        run: docker build -t clapsproductcatalog-api -f Claps.ProductCatalog.Api/Dockerfile .
